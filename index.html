@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv='cache-control' content='no-cache'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maxmum-scale=1.0">
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
 </head>
@@ -22,6 +23,10 @@
         'zh-TW':'http://v6.rabbitpre.com/m2/aUe1ZicyE2'
     };
 
+    function isPortal()
+    {
+
+    }
     function toOmLocale(locale) {
         let omLocale = locale.replace('_', '-').toLowerCase();
         switch (omLocale) {
@@ -58,16 +63,25 @@
 
             var url =urlMaps[locale];
             if(url)
-                return url;
-
+            {
+                return {
+                    locale:locale,
+                    url:url,
+                }
+            }
         }
-        return urlMaps["en"];
+        return {
+            locale:locale,
+            url:urlMaps["en"],
+        }
+
 
     }
 
     debugger
-    var _url = getValidH5();
-    window.location.replace(_url);
+    var result = getValidH5();
+    const temp="http://en.mini1.cn/index.php/news_detail?id=35&tag=1";
+    window.location.replace(temp);
 
 
 
