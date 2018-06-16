@@ -43,12 +43,11 @@
         var DEFAULT_VALUE = 'en';
         var PREFERRED_LANGUAGE = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage || DEFAULT_VALUE;
 
-        if (navigator && navigator.languages && navigator.languages.length > 0) {
-            locale = navigator.languages[0];
-        } else if (navigator.language) {
-            locale = navigator.language;
+        if (PREFERRED_LANGUAGE.length) {
+            if(PREFERRED_LANGUAGE.length>0)
+                return navigator.languages[0];
         }
-        return locale;
+        return PREFERRED_LANGUAGE;
     }
 
     function getValidH5()
@@ -66,10 +65,10 @@
 
     }
 
+    debugger
     var _url = getValidH5();
-    setTimeout(function(){
-        window.location.replace(_url);
-    },3000);
+    window.location.replace(_url);
+
 
 
 </script>
