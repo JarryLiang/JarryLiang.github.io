@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+
+</head>
+<body>
+
+</body>
+<script>
+
+    const urlMaps={
+        'id':'http://v7.rabbitpre.com/m2/aUe1Zicpt0',
+        'pt':'http://v7.rabbitpre.com/m2/aUe1Zicptz',
+        'th':'http://v6.rabbitpre.com/m2/aUe1Zicpty',
+        'vi':'http://v7.rabbitpre.com/m2/aUe1Zicpts',
+        'ja':'http://v6.rabbitpre.com/m2/aUe1Zicptr',
+        'en':'http://v6.rabbitpre.com/m2/aUe1Zic3ny',
+        'zh-CN':'http://v7.rabbitpre.com/m2/aUe1Zicsp2',
+        'zh-TW':'http://v6.rabbitpre.com/m2/aUe1ZicyE2'
+    };
+
+    function toOmLocale(locale) {
+        let omLocale = locale.replace('_', '-').toLowerCase();
+        switch (omLocale) {
+            case 'zh-tw' :
+                omLocale = 'zh-TW';
+                break;
+            case 'zh-cn' :
+                omLocale = 'zh-CN';
+                break;
+            default :
+                omLocale = locale.substring(0, 2);
+        }
+        return omLocale;
+    };
+
+    function getLang()
+    {
+        var locale ="en";
+        if (navigator && navigator.languages && navigator.languages.length > 0) {
+            locale = navigator.languages[0];
+        } else if (navigator.language) {
+            locale = navigator.language;
+        }
+        return locale;
+    }
+
+    function getValidH5()
+    {
+        var locale=toOmLocale(getLang());
+        var url =urlMaps[locale];
+        if(url)
+            return url;
+        else
+            return urlMaps["en"];
+
+    }
+
+    var _url = getValidH5();
+
+    window.location.replace(_url);
+
+</script>
+</html>
