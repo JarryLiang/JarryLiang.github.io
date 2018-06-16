@@ -64,8 +64,10 @@
     }
 
     var _url = getValidH5();
+    setTimeout(function(){
+        window.location.replace(_url);
+    },3000);
 
-    window.location.replace(_url);
 
 </script>
 </html>
