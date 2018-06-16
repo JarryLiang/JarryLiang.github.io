@@ -40,6 +40,9 @@
     function getLang()
     {
         var locale ="en";
+        var DEFAULT_VALUE = 'en';
+        var PREFERRED_LANGUAGE = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage || DEFAULT_VALUE;
+
         if (navigator && navigator.languages && navigator.languages.length > 0) {
             locale = navigator.languages[0];
         } else if (navigator.language) {
