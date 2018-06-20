@@ -46,6 +46,21 @@
 </div>
 
 <script type="text/javascript">
+  function toggleFullScreen() {
+    var doc = window.document;
+    var docEl = doc.documentElement;
+
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+    if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+      requestFullScreen.call(docEl);
+    }
+    else {
+      cancelFullScreen.call(doc);
+    }
+  }
+
     function showCode(code) {
         document.getElementById("code").textContent = code;
     }
@@ -61,9 +76,10 @@
         return undefined;
     }
 
-    const result = getQueryVariable("code");
+    var result = getQueryVariable("code");
     if (result) {
         showCode(result);
+        toggleFullScreen();
         console.log(result);
     }
 
