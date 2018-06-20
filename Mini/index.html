@@ -3,6 +3,7 @@
 <head>
     <title>Mini World Block Arc X Omlet Arcade</title>
     <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -46,6 +47,7 @@
 </div>
 
 <script type="text/javascript">
+    /*
   function toggleFullScreen() {
     var doc = window.document;
     var docEl = doc.documentElement;
@@ -59,7 +61,7 @@
     else {
       cancelFullScreen.call(doc);
     }
-  }
+  }*/
 
     function showCode(code) {
         document.getElementById("code").textContent = code;
@@ -79,7 +81,7 @@
     var result = getQueryVariable("code");
     if (result) {
         showCode(result);
-        toggleFullScreen();
+
         console.log(result);
     }
 
