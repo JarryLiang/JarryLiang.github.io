@@ -7,20 +7,24 @@
 
     <style>
         body {
-            padding:0;
-            margin:0;
+            padding: 0;
+            margin: 0;
         }
-        .header{
-            width:100%;
-        }
-        .head-image{
+
+        .header {
             width: 100%;
-            height:auto;
         }
-        .container{
+
+        .head-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
             padding-top: 20pt;
         }
-        .border{
+
+        .border {
             /* Rectangle: */
             background: #76B3FA;
             border-radius: 8px;
@@ -31,27 +35,24 @@
 </head>
 
 <body>
-  <div class="header">
-      <img src="https://jarryliang.github.io/head.png" class="head-image">
-  </div>
-  <div class="container">
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content: center;">
-          <h3>Your gift code:</h3>
-          <div class="border" id="code" >N/A</div>
-      </div>
-  </div>
-
-
-
+<div class="header">
+    <img src="https://jarryliang.github.io/head.png" class="head-image">
+</div>
+<div class="container">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content: center;">
+        <h3>Your gift code:</h3>
+        <div class="border" id="code">N/A</div>
+    </div>
+</div>
 
 <script type="text/javascript">
     function showCode(code) {
-        document.getElementById("code").textContent=code;
+        document.getElementById("code").textContent = code;
     }
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split('&');
-        for (var i = 0; i < vars.length; i++) {
+        for(var i = 0; i < vars.length; i++) {
             var pair = vars[i].split('=');
             if (decodeURIComponent(pair[0]) == variable) {
                 return decodeURIComponent(pair[1]);
@@ -60,9 +61,8 @@
         return undefined;
     }
 
-    const result=getQueryVariable("code");
-    if(result)
-    {
+    const result = getQueryVariable("code");
+    if (result) {
         showCode(result);
         console.log(result);
     }
